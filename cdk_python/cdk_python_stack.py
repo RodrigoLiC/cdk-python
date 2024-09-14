@@ -11,7 +11,7 @@ class CdkPythonStack(Stack):
         # Definir el sintetizador personalizado
         synthesizer = DefaultStackSynthesizer(
             file_assets_bucket_name="cf-templates-1k0oguavt109r-us-east-1",  # Nombre del bucket S3 para los archivos de activos
-            deploy_role_arn="arn:aws:iam::239245338181:role/LabRole"  # Rol de IAM que se usará para desplegar
+            deploy_role_arn="arn:aws:iam::239245338181:role/LabRole",  # Rol de IAM que se usará para desplegar
             cloud_formation_execution_role= "arn:aws:iam::239245338181:role/LabRole",
             file_asset_publishing_role_arn="arn:aws:iam::239245338181:role/LabRole",
             deploy_role_external_id="arn:aws:iam::239245338181:role/LabRole",
