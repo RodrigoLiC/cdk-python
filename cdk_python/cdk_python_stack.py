@@ -35,13 +35,14 @@ class CdkPythonStack(Stack):
             associate_public_ip_address=True,
             key_name="ejemplo"
         )
-
-
-
-
+    
+        CfnOutput(self, "InstanceId", value=instance.instance_id, description="ID de la instancia EC2")
+        CfnOutput(self, "InstancePublicIP", value=instance.instance_public_ip, description="IP pública de la instancia")
         
 
-        # Parámetros (nombre de instancia y AMI ID)
+        
+""" 
+# Parámetros (nombre de instancia y AMI ID)
         instance_name = "MV Reemplazar"  # Nombre por defecto de la instancia
         ami_id = "ami-0aa28dab1f2852040"  # AMI ID especificada
         
@@ -51,13 +52,8 @@ class CdkPythonStack(Stack):
             description="Permitir tráfico SSH, HTTP y en el puerto 8000 desde cualquier lugar",
             allow_all_outbound=True
         )
-        
 
-        # Salidas
-        CfnOutput(self, "InstanceId", value=ec2_instance.instance_id, description="ID de la instancia EC2")
-        CfnOutput(self, "InstancePublicIP", value=ec2_instance.instance_public_ip, description="IP pública de la instancia")
-
-""" # Agregar reglas de ingreso al Security Group
+# Agregar reglas de ingreso al Security Group
         security_group.add_ingress_rule(
             peer=ec2.Peer.any_ipv4(),
             connection=ec2.Port.tcp(22),
@@ -89,4 +85,9 @@ class CdkPythonStack(Stack):
                 device_name="/dev/sda1",
                 volume=ec2.BlockDeviceVolume.ebs(20)  # Tamaño del volumen en GB
             )],
-        ) """
+        )
+         # Salidas
+        CfnOutput(self, "InstanceId", value=ec2_instance.instance_id, description="ID de la instancia EC2")
+        CfnOutput(self, "InstancePublicIP", value=ec2_instance.instance_public_ip, description="IP pública de la instancia")
+
+           """
