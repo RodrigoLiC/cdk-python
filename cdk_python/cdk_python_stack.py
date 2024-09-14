@@ -45,8 +45,8 @@ class CdkPythonStack(Stack):
             vpc=existing_vpc,
             security_group=security_group1,
             associate_public_ip_address=True,
-            key_name="vockey"
-            role=ec2.IRole.from_role_arn(self, "Role", "arn:aws:iam::239245338181:role/LabRole")
+            key_name="vockey",
+            role=ec2.IRole.from_role_arn(self, "Role", "arn:aws:iam::239245338181:role/LabRole"),
         )
     
         CfnOutput(self, "InstanceId", value=instance.instance_id, description="ID de la instancia EC2")
