@@ -3,6 +3,7 @@ from aws_cdk import (
     aws_ec2 as ec2,  # Para EC2 y Security Groups
     DefaultStackSynthesizer,
     CfnOutput,       # Para las salidas
+    aws_iam as iam,  # Importar IAM para usar IRole
 )
 from constructs import Construct
 
