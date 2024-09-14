@@ -37,8 +37,8 @@ class CdkPythonStack(Stack):
 
         user_data = ec2.UserData.for_linux()  # Crear user data para Linux
         user_data.add_commands(
-            "git clone https://github.com/RodrigoLiC/webplantilla.git",  # Clonar el primer repositorio
-            "git clone https://github.com/RodrigoLiC/websimple.git"  # Clonar el segundo repositorio
+            "git clone https://github.com/RodrigoLiC/webplantilla.git /var/www/html/webplantilla",  # Clonar el primer repositorio
+            "git clone https://github.com/RodrigoLiC/websimple.git /var/www/html/websimple"  # Clonar el segundo repositorio
         )
 
         # instancia EC2
